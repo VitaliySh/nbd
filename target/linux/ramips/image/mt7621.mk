@@ -585,6 +585,20 @@ define Device/storylink_sap-g3200u3
 endef
 TARGET_DEVICES += storylink_sap-g3200u3
 
+define Device/snr-me2-sfp
+  SUPPORTED_DEVICES += snr-me2-sfp
+  MTK_SOC := mt7621
+  DEVICE_VENDOR := SNR
+  DEVICE_MODEL := SNR-ME2-SFP
+  IMAGE_SIZE := $(ralink_default_fw_size_16M)
+  BLOCKSIZE := 64k
+  IMAGE/sysupgrade.bin := $$(IMAGE/default) | append-metadata
+  DEVICE_TITLE := SNR ME2 SFP
+  DEVICE_PACKAGES := \
+        kmod-mt7615e wpad-mini kmod-usb3
+endef
+TARGET_DEVICES += snr-me2-sfp
+
 define Device/telco-electronics_x1
   MTK_SOC := mt7621
   IMAGE_SIZE := 16064k
